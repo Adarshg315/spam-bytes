@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Timer from './components/Timer';
 
 export default function App() {
 	const questions = [
@@ -43,6 +44,7 @@ export default function App() {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
+	const [startQuiz, setStartQuiz] = useState(false);
 
 	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
@@ -56,9 +58,10 @@ export default function App() {
 			setShowScore(true);
 		}
 	};
-	return (
-		<div className='app'>
-			{showScore ? (
+
+	const renderQuestions = () => {
+		return (
+			showScore ? (
 				<div className='score-section'>
 					You scored {score} out of {questions.length}
 				</div>
@@ -76,7 +79,16 @@ export default function App() {
 						))}
 					</div>
 				</>
-			)}
+			))
+		
+	}
+
+	return (
+		<>
+		{startQuiz && <Timer value={questions.length}/>}
+		<div className='app'>
+			{startQuiz ? renderQuestions() : <button onClick={()=>setStartQuiz(true)}>Start</button>}
 		</div>
+		</>
 	);
 }
