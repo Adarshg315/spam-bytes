@@ -25,7 +25,7 @@ const Timer = ({value})=> {
         return (
             <div>
                 { minutes === 0 && seconds === 0
-                    ? <h1>Busted!</h1>
+                    ? <h1>Time up!</h1>
                     : <h1>Time Remaining: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
                 }
             </div>
