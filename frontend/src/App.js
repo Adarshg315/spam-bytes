@@ -90,12 +90,6 @@ export default function App() {
 			))
 		
 	}
-	
-	// const componentDidMount = () =>{
-	// 	document.addEventListener('contextmenu', (e) => {
-	// 	  e.preventDefault();
-	// 	});
-	// };
 
 
 	useEffect(()=>{
