@@ -95,7 +95,7 @@ export default function App() {
 		<>
 		{startQuiz && <Timer value={questions.length}/>}
 		<div className='app'>
-			{startQuiz ? renderQuestions() : <button onClick={()=>setStartQuiz(true)}>Start</button>}
+			{startQuiz ? renderQuestions() : <button onClick={()=>setStartQuiz(true)}>Start Test</button>}
 		</div>
 		</>
 	);
