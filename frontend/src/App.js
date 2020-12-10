@@ -121,7 +121,7 @@ export default function App() {
 		{startQuiz && !showScore && <Timer value={questions.length} />}
 		{showScore && <h1>Test completed!</h1>}
 		<div className='app' style={{userSelect:"none"}}>
-			{startQuiz ? renderQuestions() : <button onClick={()=>setStartQuiz(true)}>Start Test</button>}	
+			{startQuiz ? renderQuestions() : <button style={{justifyContent: 'center'}} onClick={()=>setStartQuiz(true)}><h1>Start Test</h1></button>}	
 		</div>
 		{/* <TextArea /> */}
 		
