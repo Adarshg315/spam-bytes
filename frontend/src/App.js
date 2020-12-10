@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Timer from './components/Timer';
 import shuffleArray from './helper/shuffle';
+// import CreateQuestion from './components/create-question.component';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import Navbar from './components/navbar.component';
+// import stopPrntScr from './helper/preventScreenshot'
+// import { Form, TextArea } from 'semantic-ui-react'
 
 const questionsList = [
 	{
@@ -44,7 +49,6 @@ const questionsList = [
 
 export default function App() {
 	const [questions, setQuestions] = useState(questionsList);
-
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
@@ -86,17 +90,36 @@ export default function App() {
 			))
 		
 	}
+	
+	// const componentDidMount = () =>{
+	// 	document.addEventListener('contextmenu', (e) => {
+	// 	  e.preventDefault();
+	// 	});
+	// };
+
 
 	useEffect(()=>{
-		setQuestions(shuffleArray(questions));
+		setQuestions(shuffleArray(questionsList));
 	}, []);
 
+	const TextArea= () =>{
+		// var value = this.state.currentValue.replace('\\n', '\n');
+		return (
+		  <textarea name="body"
+			// onChange={this.handleChange}
+			// value={value}
+			placeholder='Write your answer here' 
+			/>
+		)
+	  }
 	return (
+
 		<>
 		{startQuiz && <Timer value={questions.length}/>}
-		<div className='app'>
-			{startQuiz ? renderQuestions() : <button onClick={()=>setStartQuiz(true)}>Start Test</button>}
+		<div className='app' style={{userSelect:"none"}}>
+			{startQuiz ? renderQuestions() : <button onClick={()=>setStartQuiz(true)}>Start Test</button>}	
 		</div>
+		{/* <TextArea /> */}
 		</>
 	);
 }

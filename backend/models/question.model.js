@@ -9,7 +9,7 @@ const questionsSchema = new Schema({
         type: String,
       },
       answerOptions: {
-        type: Array,
+        type: Array
       }
 });
 

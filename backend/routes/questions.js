@@ -8,12 +8,12 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const title = req.body.title;
-  const description = req.body.description;
+  const questionText = req.body.questionText;
+  const questionType = req.body.questionType;
 
   const newQuestions = new Questions({
-    title,
-    description,
+    questionText,
+    questionType,
   });
 
   newQuestions
@@ -35,8 +35,8 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Questions.findById(req.params.id)
     .then((question) => {
-      question.title = req.body.title;
-      question.description = req.body.description;
+      question.questionText = req.body.questionText;
+      question.questionType = req.body.questionType;
       question
         .save()
         .then(() => res.json('question updated!'))
