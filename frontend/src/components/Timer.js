@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 const Timer = ({value})=> {
     const [minutes, setMinutes] = useState(value);
     const [seconds, setSeconds] = useState(0);
-
+    let myInterval = undefined;
     useEffect(()=>{
-        const myInterval = setInterval(() => {
+        myInterval = setInterval(() => {
 
             if (seconds > 0) {
                 setSeconds(seconds -1)
@@ -19,7 +19,7 @@ const Timer = ({value})=> {
                 }
             } 
         }, 1000);
-        return ()=>clearInterval(myInterval);
+        return () => clearInterval(myInterval);
     },[seconds, minutes]);
 
         return (

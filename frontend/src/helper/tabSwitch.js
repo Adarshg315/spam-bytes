@@ -1,6 +1,7 @@
 let hidden = null;
 let visibilityChange = null;
-if (typeof document.hidden !== 'undefined') { // Opera 12.10 and Firefox 18 and later support 
+
+if (typeof document.hidden !== 'undefined') { 
   hidden = 'hidden';
   visibilityChange = 'visibilitychange';
 } else if (typeof document.msHidden !== 'undefined') {
@@ -12,7 +13,6 @@ if (typeof document.hidden !== 'undefined') { // Opera 12.10 and Firefox 18 and 
 }
 
 class Hello extends React.Component {
-
   state = {
     actions: []
   }

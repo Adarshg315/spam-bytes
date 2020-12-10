@@ -99,6 +99,9 @@ export default function App() {
 
 
 	useEffect(()=>{
+		document.addEventListener('contextmenu', (e) => {
+			e.preventDefault();
+		  });
 		setQuestions(shuffleArray(questionsList));
 	}, []);
 
@@ -115,11 +118,14 @@ export default function App() {
 	return (
 
 		<>
-		{startQuiz && <Timer value={questions.length}/>}
+		{startQuiz && !showScore && <Timer value={questions.length} />}
+		{showScore && <h1>Test completed!</h1>}
 		<div className='app' style={{userSelect:"none"}}>
 			{startQuiz ? renderQuestions() : <button onClick={()=>setStartQuiz(true)}>Start Test</button>}	
 		</div>
 		{/* <TextArea /> */}
+		
 		</>
 	);
 }
+
