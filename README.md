@@ -1,6 +1,6 @@
-# spam-bytes
+# spam-bytes (Q&A System)
+built for void hacks (HACKATHON) 
 
-for void hacks (HACKATHON)
 ```bash
 to run project frontend
 $ git clone https://github.com/Adarshg315/spam-bytes
